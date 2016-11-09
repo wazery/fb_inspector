@@ -14,7 +14,7 @@ module Fb
         interactions_arr = []
 
         @page_ids.each_with_index do |page_id, index|
-          page_feed = @graph.get_connections(page_id, 'feed', limit: @posts_limit[index])
+          page_feed = @graph.get_connections(page_id, 'feed', limit: @posts_limit[index], fields: 'type')
 
           page_feed.each do |post|
             reactions = @graph.get_connections(post['id'], 'reactions')
