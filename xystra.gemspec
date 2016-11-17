@@ -1,17 +1,17 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'fb/inspector/version'
+require 'xystra/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = 'fb-inspector'
-  spec.version       = Fb::Inspector::VERSION
+  spec.name          = 'xystra'
+  spec.version       = Xystra::VERSION
   spec.authors       = ['Islam Wazery']
   spec.email         = ['wazery@ubuntu.com']
 
   spec.summary       = %q{Get interactions on Facebook pages posts.}
   spec.description   = %q{Get interactions on Facebook pages posts.}
-  spec.homepage      = 'https://github.com/wazery/fb-inspector.'
+  spec.homepage      = 'https://github.com/wazery/xystra.'
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
   # to allow pushing to a single host or delete this section to allow pushing to any host.

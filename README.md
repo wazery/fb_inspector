@@ -1,6 +1,6 @@
-# Fb::Inspector
+# Xystra
 
-A simple Ruby gem to get the reactions and comments on posts from certian Facebook pages.
+A simple Ruby gem to get the reactions and comments on posts from certian Facebook pages. The name is the greek word for scrapper.
 
 ## Installation
 
