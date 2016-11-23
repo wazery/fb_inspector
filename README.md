@@ -7,7 +7,7 @@ A simple Ruby gem to get the reactions and comments on posts from certian Facebo
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'fb-inspector'
+gem 'xystra'
 ```
 
 And then execute:
@@ -16,7 +16,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install fb-inspector
+    $ gem install xystra
 
 ## Usage
 
