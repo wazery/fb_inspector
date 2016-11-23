@@ -9,7 +9,7 @@ module Xystra
       @page_id   = page_id
       @reactions = reactions
       @comments  = comments
-      @tags      = tags if type == 'photo'
+      type == 'photo' ? @tags = tags : @tags = []
     end
 
     def reactions
@@ -18,7 +18,7 @@ module Xystra
       reactions = GraphApi.instance.get_connections(id, 'reactions')
 
       reactions.map do |reaction|
-        Reaction.new(@page_id, reaction['id'], reaction['type'])
+        Reaction.new(@page_id, reaction['id'], id, type, reaction['type'])
       end
     end
 
@@ -28,7 +28,7 @@ module Xystra
       comments = GraphApi.instance.get_connections(id, 'comments')
 
       comments.map do |comment|
-        Comment.new(@page_id, comment['from']['id'])
+        Comment.new(@page_id, comment['from']['id'], id, type)
       end
     end
 
@@ -43,9 +43,25 @@ module Xystra
 
       if tags && tags['with_tags'].present?
         tags['with_tags']['data'].map do |tag|
-          Tag.new(@page_id, tag['id'], tag['name'])
+          Tag.new(@page_id, tag['id'], id, type, tag['name'])
         end
       end
+    end
+
+    def as_json(options = {})
+      [reactions, comments, tags].flatten
+    end
+
+    def to_json(*options)
+      as_json(*options).to_json(*options)
+    end
+
+    def as_csv
+      [reactions, comments, tags]
+    end
+
+    def to_csv
+      as_csv.to_csv
     end
   end
 end
